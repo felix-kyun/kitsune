@@ -5,8 +5,24 @@
 		"module": "ES2022",
 		"target": "ES2020",
 		"lib": ["ES2023"],
-		"moduleResolution": "Bundler",
+		"moduleResolution": "bundler",
 		"jsx": "react-jsx",
-		"jsxImportSource": "ags/gtk4"
+		"jsxImportSource": "ags/gtk4",
+
+		"noEmit": true,
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"verbatimModuleSyntax": true,
+
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": true,
+
+		"noUncheckedSideEffectImports": true,
+		"allowImportingTsExtensions": true,
+
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	}
 }
