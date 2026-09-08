@@ -16,7 +16,22 @@ export const Config = {
 		},
 		radius: 16,
 	},
+	Files: {
+		styles: "styles.scss",
+		colors: "colors.scss",
+	},
 };
+
+// process config
+
+Config.Files.styles = GLib.build_filenamev([
+	getConfigDir(),
+	Config.Files.styles,
+]);
+Config.Files.colors = GLib.build_filenamev([
+	getConfigDir(),
+	Config.Files.colors,
+]);
 
 export const prefixName = (name: string) => `${Config.App.namespace}-${name}`;
 
