@@ -1,5 +1,6 @@
 import app from "ags/gtk4/app";
 import Bar from "@/Bar";
+import Config from "@/Config";
 import { Frame } from "@/Frame";
 
 export const MiriOptions: Parameters<typeof app.start>[0] = {
@@ -13,6 +14,9 @@ export const MiriOptions: Parameters<typeof app.start>[0] = {
 			}) ?? monitors[0]!;
 
 		Bar(primary);
-		Frame(primary);
+
+		if (Config.Frame.enabled) {
+			Frame(primary);
+		}
 	},
 };

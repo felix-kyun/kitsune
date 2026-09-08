@@ -1,5 +1,6 @@
 export const Config = {
 	Frame: {
+		enabled: false,
 		margin: {
 			top: 8,
 			bottom: 8,
