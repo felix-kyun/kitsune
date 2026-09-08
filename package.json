@@ -1,4 +1,6 @@
 {
+	"name": "kitsune",
+	"main": "app.ts",
 	"dependencies": {
 		"ags": "link:/usr/share/ags/js",
 		"gnim": "link:/usr/share/ags/js/node_modules/gnim"
@@ -7,6 +9,6 @@
 		"@biomejs/biome": "^2.5.12"
 	},
 	"scripts": {
-		"format": "biome format --write"
+		"check": "biome check --write"
 	}
 }

@@ -1,7 +1,7 @@
-import { Astal, Gtk, type Gdk } from "ags/gtk4";
+import { Astal, type Gdk } from "ags/gtk4";
 import app from "ags/gtk4/app";
-import { Config } from "@/Config";
 import Cairo from "cairo";
+import { Config, prefixName } from "@/Config";
 
 const {
 	Exclusivity,
@@ -73,11 +73,12 @@ export const Frame = (monitor: Gdk.Monitor) => {
 	return (
 		<window
 			visible
-			name="miri-shell-frame"
 			class="Frame"
+			name={prefixName("frame")}
+			namespace={Config.App.namespace}
 			gdkmonitor={monitor}
 			layer={Layer.TOP}
-			exclusivity={Exclusivity.NORMAL}
+			exclusivity={Exclusivity.EXCLUSIVE}
 			anchor={TOP | RIGHT | BOTTOM | LEFT}
 			application={app}
 			canTarget={false}

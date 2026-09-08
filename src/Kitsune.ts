@@ -1,11 +1,13 @@
+import GLib from "gi://GLib";
 import app from "ags/gtk4/app";
 import Bar from "@/Bar";
 import Config from "@/Config";
 import { Frame } from "@/Frame";
 
 export const KitsuneOptions: Parameters<typeof app.start>[0] = {
-	instanceName: "dev.felix.kitsune",
+	instanceName: Config.App.name,
 	main: () => {
+		GLib.set_prgname(Config.App.id);
 		const monitors = app.get_monitors();
 
 		const primary =
@@ -17,7 +19,7 @@ export const KitsuneOptions: Parameters<typeof app.start>[0] = {
 		Bar(primary);
 
 		if (Config.Frame.enabled) {
-			Frame(primary);
+			monitors.forEach(Frame);
 		}
 	},
 };
