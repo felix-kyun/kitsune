@@ -14,7 +14,7 @@ function drawRoundedRect(
 	opts: {
 		width: number;
 		height: number;
-		margin: number;
+		margin: typeof Config.Frame.margin;
 		radius: number;
 	},
 ) {
@@ -24,47 +24,47 @@ function drawRoundedRect(
 
 	// top-left
 	cr.arc(
-		margin + radius,
-		margin + radius,
+		margin.left + radius,
+		margin.top + radius,
 		radius,
 		Math.PI,
 		(3 * Math.PI) / 2,
 	);
 
-	cr.lineTo(width - margin - radius, margin);
+	cr.lineTo(width - margin.right - radius, margin.top);
 
 	// top-right
 	cr.arc(
-		width - margin - radius,
-		margin + radius,
+		width - margin.right - radius,
+		margin.top + radius,
 		radius,
 		(3 * Math.PI) / 2,
 		0,
 	);
 
-	cr.lineTo(width - margin, height - margin - radius);
+	cr.lineTo(width - margin.right, height - margin.bottom - radius);
 
 	// bottom-right
 	cr.arc(
-		width - margin - radius,
-		height - margin - radius,
+		width - margin.right - radius,
+		height - margin.bottom - radius,
 		radius,
 		0,
 		Math.PI / 2,
 	);
 
-	cr.lineTo(margin + radius, height - margin);
+	cr.lineTo(margin.left + radius, height - margin.bottom);
 
 	// bottom-left
 	cr.arc(
-		margin + radius,
-		height - margin - radius,
+		margin.left + radius,
+		height - margin.bottom - radius,
 		radius,
 		Math.PI / 2,
 		Math.PI,
 	);
 
-	cr.lineTo(margin, margin + radius);
+	cr.lineTo(margin.left, margin.top + radius);
 
 	cr.closePath();
 }
@@ -98,7 +98,12 @@ export const Frame = (monitor: Gdk.Monitor) => {
 							height,
 							width,
 							radius: 0,
-							margin: 0,
+							margin: {
+								top: 0,
+								bottom: 0,
+								right: 0,
+								left: 0,
+							},
 						});
 
 						drawRoundedRect(cr, {

@@ -1,6 +1,11 @@
 export const Config = {
 	Frame: {
-		margin: 8,
+		margin: {
+			top: 8,
+			bottom: 8,
+			left: 8,
+			right: 8,
+		},
 		radius: 16,
 	},
 };
