@@ -21,18 +21,20 @@ const files = (() => {
 	return files;
 })();
 
-export function monitorStyleChanges() {
+function update_css() {
 	const buildTarget = exec(["mktemp", "--suffix", ".css"]);
 	exec(["sass", Config.Files.styles, buildTarget]);
+	app.reset_css();
+	app.apply_css(buildTarget);
+}
+
+export function monitorStyleChanges() {
+	update_css();
 
 	files
 		.filter((file) => file.endsWith(".scss"))
 		.forEach((file) => {
-			monitorFile(file, () => {
-				exec(["sass", Config.Files.styles, buildTarget]);
-				app.reset_css();
-				app.apply_css(buildTarget);
-			});
+			monitorFile(file, update_css);
 		});
 }
 
