@@ -41,6 +41,6 @@ export function monitorConfigChanges() {
 	const configDir = getConfigDir();
 	const target = GLib.build_filenamev([configDir, "kitsune"]);
 	monitorFile(target, () => {
-		app.quit();
+		setTimeout(() => app.quit(), Config.restartDelay);
 	});
 }

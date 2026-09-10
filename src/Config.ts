@@ -1,4 +1,5 @@
 import GLib from "gi://GLib";
+import { mergeConfig } from "./utils/mergeConfig";
 
 export const Config = {
 	App: {
@@ -19,25 +20,32 @@ export const Config = {
 	Files: {
 		styles: "styles.scss",
 		colors: "colors.scss",
+		override: "config.override.ts",
 	},
+	restartDelay: 1000,
 };
 
-// process config
+// process file paths
+for (const key in Config.Files) {
+	const relativePath = key as keyof typeof Config.Files;
+	Config.Files[relativePath] = prependConfigDir(Config.Files[relativePath]);
+}
 
-Config.Files.styles = GLib.build_filenamev([
-	getConfigDir(),
-	Config.Files.styles,
-]);
-Config.Files.colors = GLib.build_filenamev([
-	getConfigDir(),
-	Config.Files.colors,
-]);
+// override default config
+if (GLib.file_test(Config.Files.override, GLib.FileTest.IS_REGULAR)) {
+	const override = await import("./../config.override.ts");
+	mergeConfig(Config, override.default);
+}
 
 export const prefixName = (name: string) => `${Config.App.namespace}-${name}`;
 
 export function getConfigDir(): string {
 	const configDir = GLib.get_user_config_dir();
 	return GLib.build_filenamev([configDir, Config.App.name]);
+}
+
+export function prependConfigDir(relativePath: string) {
+	return GLib.build_filenamev([getConfigDir(), relativePath]);
 }
 
 export default Config;
