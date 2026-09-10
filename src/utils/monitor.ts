@@ -24,8 +24,7 @@ const files = (() => {
 function update_css() {
 	const buildTarget = exec(["mktemp", "--suffix", ".css"]);
 	exec(["sass", Config.Files.styles, buildTarget]);
-	app.reset_css();
-	app.apply_css(buildTarget);
+	app.apply_css(buildTarget, true);
 }
 
 export function monitorStyleChanges() {
