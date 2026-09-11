@@ -10,7 +10,7 @@ import style from "./styles.scss";
 app.start({
 	css: style,
 	instanceName: Config.App.name,
-	icons: Config.Files.icons,
+	icons: Config.Paths.icons,
 	main: () => {
 		GLib.set_prgname(Config.App.id);
 		monitorStyleChanges();

@@ -17,7 +17,7 @@ export const Config = {
 		},
 		radius: 16,
 	},
-	Files: {
+	Paths: {
 		styles: "styles.scss",
 		colors: "colors.scss",
 		override: "config.override.ts",
@@ -33,13 +33,13 @@ export const Config = {
 };
 
 // process file paths
-for (const key in Config.Files) {
-	const relativePath = key as keyof typeof Config.Files;
-	Config.Files[relativePath] = prependConfigDir(Config.Files[relativePath]);
+for (const key in Config.Paths) {
+	const relativePath = key as keyof typeof Config.Paths;
+	Config.Paths[relativePath] = prependConfigDir(Config.Paths[relativePath]);
 }
 
 // override default config
-if (GLib.file_test(Config.Files.override, GLib.FileTest.IS_REGULAR)) {
+if (GLib.file_test(Config.Paths.override, GLib.FileTest.IS_REGULAR)) {
 	const override = await import("./../config.override.ts");
 	mergeConfig(Config, override.default);
 }

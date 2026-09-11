@@ -23,7 +23,7 @@ const files = (() => {
 
 function update_css() {
 	const buildTarget = exec(["mktemp", "--suffix", ".css"]);
-	exec(["sass", Config.Files.styles, buildTarget]);
+	exec(["sass", Config.Paths.styles, buildTarget]);
 	app.apply_css(buildTarget, true);
 }
 
