@@ -1,21 +1,37 @@
 @use "colors" as *;
+@use "fonts/fonts";
 
+// tune
+$opacity: 0.66;
+
+$bg: rgba($surface, $opacity);
+$fg: $on-surface;
 $radius-sm: 12px;
 $radius-md: 14px;
 $radius-lg: 16px;
 
-// $bg: rgba($surface, 0.33);
-$bg: $surface;
+window {
+	font-family: "Clash Display";
+	font-size: 16px;
+	font-weight: 400;
+}
 
 window.Bar {
-	background: $bg;
-	color: $primary;
-	// font-weight: bold;
-	padding: 8px 0px;
+	min-height: 28px;
+	background-color: $bg;
+	color: $fg;
+	padding: 8px 8px;
 
-	button {
-		border-radius: 8px;
-		margin: 2px;
+	* {
+		font-size: 1rem;
+	}
+
+	.pill {
+		font-weight: 600;
+		padding: 4px 12px;
+		border-radius: $radius-md;
+		background-color: $primary;
+		color: $on-primary;
 	}
 }
 
