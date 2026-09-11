@@ -14,6 +14,9 @@ importers:
       gnim:
         specifier: link:/usr/share/ags/js/node_modules/gnim
         version: link:../../../../usr/share/ags/js/node_modules/gnim
+      lucide-static:
+        specifier: ^1.44.0
+        version: 1.44.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^2.5.12
@@ -78,6 +81,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  lucide-static@1.44.0:
+    resolution: {integrity: sha512-u1PAHVq1Ka06FDcXFY8r8fLtS5efVHaawXEETW5tmfnMbd9NU6sPK3GAvZgrbJzY5JmbjHoTTQDcoQOBmW1RKg==}
+
 snapshots:
 
   '@biomejs/biome@2.5.12':
@@ -114,3 +120,5 @@ snapshots:
 
   '@biomejs/cli-win32-x64@2.5.12':
     optional: true
+
+  lucide-static@1.44.0: {}

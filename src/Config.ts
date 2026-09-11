@@ -21,8 +21,15 @@ export const Config = {
 		styles: "styles.scss",
 		colors: "colors.scss",
 		override: "config.override.ts",
+		icons: "icons",
+	},
+	modules: {
+		datetime: {
+			format: "%a %b %d  %I:%M %p",
+		},
 	},
 	restartDelay: 1000,
+	shrug: "¯\\_(ツ)_/¯",
 };
 
 // process file paths

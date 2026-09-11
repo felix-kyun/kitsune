@@ -3,7 +3,8 @@
 	"main": "app.ts",
 	"dependencies": {
 		"ags": "link:/usr/share/ags/js",
-		"gnim": "link:/usr/share/ags/js/node_modules/gnim"
+		"gnim": "link:/usr/share/ags/js/node_modules/gnim",
+		"lucide-static": "^1.44.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.12"
