@@ -1,6 +1,7 @@
 node_modules/
 @girs/
-colors.scss
-kitsune
-config.override.ts
-icons
+/colors.scss
+/kitsune
+/config.override.ts
+/assets/icons/*
+!/assets/icons/.gitkeep

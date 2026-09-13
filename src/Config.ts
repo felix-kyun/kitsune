@@ -21,7 +21,7 @@ export const Config = {
 		styles: "styles.scss",
 		colors: "colors.scss",
 		override: "config.override.ts",
-		icons: "icons",
+		icons: "assets/icons",
 	},
 	modules: {
 		datetime: {

@@ -14,7 +14,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 pnpm install
 
 # icons
-ICON_TARGET="${ROOT}/icons/hicolor/scalable/actions"
+ICON_TARGET="${ROOT}/assets/icons/hicolor/scalable/actions"
 ICON_SOURCE="${ROOT}/node_modules/lucide-static/icons"
 ICON_WORKING=$(mktemp -d)
 mkdir -p "${ICON_TARGET}"
