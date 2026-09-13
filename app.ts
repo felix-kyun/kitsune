@@ -6,12 +6,19 @@ import { Frame } from "@/Frame";
 import { ScreenCorners } from "@/ScreenCorners";
 import { monitorConfigChanges, monitorStyleChanges } from "@/utils/monitor";
 import style from "./styles.scss";
+import { ensureDirExists } from "@/utils/ensure";
 
 app.start({
 	css: style,
 	instanceName: Config.App.name,
 	icons: Config.Paths.icons,
 	main: () => {
+		console.log(Config.Paths.icons);
+		ensureDirExists(
+			Config.Paths.icons,
+			"Icons not found, run install.sh to set them up",
+		);
+
 		GLib.set_prgname(Config.App.id);
 		monitorStyleChanges();
 		monitorConfigChanges();
