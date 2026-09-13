@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 while :; do
-	$(dirname ${BASH_SOURCE[0]})/kitsune
-	echo "Restarting..."
-	sleep 0.1
+	"${ROOT}"/kitsune
+	echo "Exited, Restarting..."
+	sleep 1
 done

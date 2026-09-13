@@ -28,7 +28,7 @@ export const Config = {
 			format: "%a %b %d  %I:%M %p",
 		},
 	},
-	restartDelay: 1000,
+	restartDelay: 1,
 	shrug: "¯\\_(ツ)_/¯",
 };
 
